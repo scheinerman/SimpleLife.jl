@@ -1,4 +1,3 @@
-# This is where the code goes.
 module SimpleLife
 export life_step
 
