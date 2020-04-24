@@ -12,13 +12,17 @@ Optional named arguments:
 * `wrap = false`: determine if the board wraps (is toroidal)
 """
 function run_life(A::Matrix{Int}; pause=0.25, wrap::Bool=false)
+    step = 0
     while true
-        display(my_spy(A))
+        my_spy(A)
+        p = plot!(xlabel=string(step))
+        display(p)
         sleep(pause)
         new_A = life_step(A,wrap)
         if A==new_A
             break
         end
         A = new_A
+        step += 1
     end
 end
