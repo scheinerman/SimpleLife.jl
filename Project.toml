@@ -1,0 +1,5 @@
+name = "SimpleLife"
+uuid = "cdff3cb4-2c4b-5bf5-8db2-d08d991b0013"
+
+[compat]
+julia = "≥ 1.0.0"
