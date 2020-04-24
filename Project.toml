@@ -1,5 +1,9 @@
 name = "SimpleLife"
 uuid = "cdff3cb4-2c4b-5bf5-8db2-d08d991b0013"
 
+[deps]
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+SimpleDrawing = "d78a06e8-ae74-583c-9a07-0d6572347000"
+
 [compat]
 julia = "≥ 1.0.0"
