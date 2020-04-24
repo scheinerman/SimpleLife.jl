@@ -18,7 +18,8 @@ as are top and bottom edges) and so the domain is a torus.
 #### `random_life`
 
 The function `A = random_life(n,m)` creates a random `n`-by-`m` zero-one
-matrix as a starting point for the cellular automata.
+matrix as a starting point for the cellular automata. A call to
+`run_life(n)` is equivalent to `run_life(n,n)`.
 
 #### `run_life`
 
@@ -31,3 +32,7 @@ first image may take a while to appear as the plotting software
 initializes.
 * `wrap=false` determines if the cellular automata field wraps. If `true`
 then the domain is a torus.
+
+Images look something like this:
+
+![](./example.png)
