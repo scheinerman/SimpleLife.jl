@@ -33,6 +33,10 @@ function _neighbor_count(A::Matrix{Int},i::Int,j::Int)
     return count
 end
 
+"""
+`_new_entry(A,i,j)` computes the new entry in cell `i,j`
+if the current state is given by matrix `A`.
+"""
 function _new_entry(A::Matrix{Int},i::Int,j::Int)
     nc = _neighbor_count(A,i,j)
     if A[i,j]==0
@@ -50,7 +54,10 @@ function _new_entry(A::Matrix{Int},i::Int,j::Int)
     end
 end
 
-
+"""
+`life_step(A)` gives the next generation after state `A`
+in Conway's *Game of Life*.
+"""
 function life_step(A::Matrix{Int})
     r,c = size(A)
     B = zeros(Int,r,c)
