@@ -9,7 +9,7 @@ as appropriate.
 function _get(A::Matrix{T}, i::Int, j::Int, wrap::Bool=false)::T where T<:Number
     r,c = size(A)
     if (1<=i<=r) && (1<=j<=c)
-        return A[i,j]
+        return @inbounds A[i,j]
     end
 
     if !wrap
@@ -24,7 +24,7 @@ function _get(A::Matrix{T}, i::Int, j::Int, wrap::Bool=false)::T where T<:Number
     if j==0
         j=c
     end
-    return A[i,j]
+    return @inbounds A[i,j]
 end
 
 
@@ -33,7 +33,7 @@ end
 of matrix `A` are nonzero.
 """
 function _neighbor_count(A::Matrix{Int},i::Int,j::Int,wrap::Bool=false)::Int
-    return sum(_get(A,p,q,wrap)!=0 for p=i-1:i+1 for q=j-1:j+1 if (p,q) != (i,j))
+    return sum(_get(A,p,q,wrap) for p=i-1:i+1 for q=j-1:j+1 if (p,q) != (i,j))
 end
 
 """
@@ -66,22 +66,32 @@ function life_step(A::Matrix{Int},wrap::Bool=false)::Matrix{Int}
     B = zeros(Int,r,c)
     for i=1:r
         for j=1:c
-            B[i,j] = _new_entry(A,i,j,wrap)
+            @inbounds B[i,j] = _new_entry(A,i,j,wrap)
         end
     end
     return B
 end
 
 """
-`random_life(r,c)` creates a random `r`-by-`c` instance of a life board.
+`random_life(r,c,p=0.5)` creates a random `r`-by-`c` instance of a life board
+with density `p`.
 
-`random_life(n)` is equivalent to `random_life(n,n)`.
+`random_life(n,p=0.5)` is equivalent to `random_life(n,n,p)`.
 """
-function random_life(r::Int, c::Int)
-    return rand(0:1,r,c)
+function random_life(r::Int, c::Int, p::AbstractFloat=0.5)
+    M = rand(r,c) .< p
+    return Int.(M)
 end
 
-random_life(n::Int) = random_life(n,n)
+random_life(n::Int,p::AbstractFloat=0.5) = random_life(n,n,p)
+
+"""
+`_life_check(A)` determines if the integer matrix `A` only contains
+zeros and ones.
+"""
+function _life_check(A::Matrix{Int})
+    return 0 <= minimum(A) <= maximum(A) <= 1
+end
 
 include("visualize.jl")
 
