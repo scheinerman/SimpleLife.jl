@@ -60,7 +60,3 @@ Images look something like this:
 
 The `life_step` function is reasonably fast, but `life_run` is slow for large
 boards because of the visualization.
-
-## To Do
-
-* Figure out how to make movies.
