@@ -61,7 +61,7 @@ arguments to control:
 * `file_name="life.gif"`: name of the GIF file in which to save
 * `wrap::Bool=false`: edge wrapping (same as `life_run`)
 * `max_steps:`: limit on the number of steps (frames)
-* `fps = 2`: animation frames per second
+* `rate = 5`: animation frames per second
 
 #### Example
 
