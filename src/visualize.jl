@@ -1,6 +1,6 @@
 using Plots, SimpleDrawing
 
-export life_run
+export life_run, life_movie
 
 """
 `life_run(A)` runs the game of life starting with the matrix `A`. It is
@@ -49,4 +49,38 @@ function life_run(A::Matrix{Int};
         step += 1
 
     end
+end
+
+
+
+function life_movie(A::Matrix{Int};
+        pause=0.0,
+        wrap::Bool=false,
+        max_steps::Int=typemax(Int)
+    )
+    @assert _life_check(A) "Matrix may only contain 0s and 1s"
+    step = 0
+    back_1 = 0*A    # previous A
+    back_2 = 0*A    # previous previous A
+
+
+
+    G = @gif for k=1:max_steps
+        p = my_spy(A)
+        sleep(pause)
+
+        back_2 = back_1
+        back_1 = A
+        A = life_step(A,wrap)
+
+        if A==back_1 || A==back_2 || sum(A) == 0
+            break
+        end
+        if step >= max_steps
+            break
+        end
+        step += 1
+
+    end
+    return G
 end
