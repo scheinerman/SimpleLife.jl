@@ -24,8 +24,8 @@ matrix as a starting point for the cellular automata.
 
 `random_life(n,m,p)` creates an `n`-by-`m` random matrix in which the
 the probability a cell is a one is `p`.
-* `life_run(n)` is equivalent to `random_life(n,n)`.
-* `life_run(n,p)` is equivalent to `random_life(n,n,p)`.
+* `random_life(n)` is equivalent to `random_life(n,n)`.
+* `random_life(n,p)` is equivalent to `random_life(n,n,p)`.
 
 ### `life_run`
 
@@ -50,6 +50,11 @@ then the domain is a torus.
 Images look something like this:
 
 ![](./example.png)
+
+###  `life_movie`
+
+**Under construction**
+
 
 ## Issues
 
