@@ -65,7 +65,7 @@ arguments to control:
 
 #### Example
 
-![](./life.gif)
+![](./life.m4v)
 
 ## Issues
 
