@@ -1,5 +1,5 @@
 module SimpleLife
-export life_step, random_life
+export life_step, life_step!, random_life
 
 """
 `_get(A,i,j,wrap=fasle)` returns `A[i,j]` or `0` if subscripts are out of bounds.
@@ -71,6 +71,24 @@ function life_step(A::Matrix{Int},wrap::Bool=false)::Matrix{Int}
     end
     return B
 end
+
+"""
+`life_step!(A,wrap=false)` overwrites `A` with `life_step(A,wrap)`.
+This function returns `true` if there has been a change to `A`;
+otherwise, returns `false` if there was no change.
+"""
+function life_step!(A::Matrix{Int}, wrap::Bool=false)
+    r,c = size(A)
+    B = life_step(A,wrap)
+    change = A!=B
+    for i=1:r
+        for j=1:c
+            @inbounds A[i,j] = B[i,j]
+        end
+    end
+    return change
+end
+
 
 """
 `random_life(r,c,p=0.5)` creates a random `r`-by-`c` instance of a life board
