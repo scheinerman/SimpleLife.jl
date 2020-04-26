@@ -51,10 +51,14 @@ function life_run(A::Matrix{Int};
     end
 end
 
+"""
+`life_movie(A)` creates a GIF animation of the game of life.
 
-
+Optional named arguments:
+* `wrap = false`: determine if the board wraps (is toroidal)
+* `max_steps`: maximum number of steps
+"""
 function life_movie(A::Matrix{Int};
-        pause=0.0,
         wrap::Bool=false,
         max_steps::Int=typemax(Int)
     )
@@ -66,9 +70,8 @@ function life_movie(A::Matrix{Int};
 
 
     G = @gif for k=1:max_steps
+        print(".")
         p = my_spy(A)
-        sleep(pause)
-
         back_2 = back_1
         back_1 = A
         A = life_step(A,wrap)
@@ -82,5 +85,6 @@ function life_movie(A::Matrix{Int};
         step += 1
 
     end
+    println()
     return G
 end
