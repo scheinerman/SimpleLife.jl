@@ -19,7 +19,7 @@ as are top and bottom edges) and so the domain is a torus.
 
 We also provide `life_step!(A,wrap=false)` which overwrites `A` with the next
 generation. `life_step!` returns `true` if the new `A` is different from
-the old `A` and `false` if there was no change. 
+the old `A` and `false` if there was no change.
 
 
 
@@ -53,14 +53,19 @@ then the domain is a torus.
 * `counter=false` shows the iteration number under the image.
 * `max_steps` places a limit on the number of steps to run.
 
-Images look something like this:
-
-![](./example.png)
 
 ###  `life_movie`
 
-**Under construction**
+`life_movie(A)` creates an animated GIF file. Use the following named
+arguments to control:
+* `file_name="life.gif"`: name of the GIF file in which to save
+* `wrap::Bool=false`: edge wrapping (sane as `life_run`)
+* `max_steps:`: limit on the number of steps (frames)
+* `fps = 2`: animation frames per second
 
+#### Example
+
+![](./life.gif)
 
 ## Issues
 

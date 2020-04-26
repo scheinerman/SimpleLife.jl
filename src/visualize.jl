@@ -55,12 +55,16 @@ end
 `life_movie(A)` creates a GIF animation of the game of life.
 
 Optional named arguments:
+* `file_name="life.gif"`: name of file to hold the animation
+* `fps = 2`: frame rate (frames per second)
 * `wrap = false`: determine if the board wraps (is toroidal)
-* `max_steps`: maximum number of steps
+* `max_steps`: maximum number of steps; if omitted, runs forever
 """
 function life_movie(A::Matrix{Int};
+        file_name="life.gif",
         wrap::Bool=false,
-        max_steps::Int=typemax(Int)
+        max_steps::Int=typemax(Int),
+        fps = 2
     )
     @assert _life_check(A) "Matrix may only contain 0s and 1s"
     step = 0
@@ -69,7 +73,7 @@ function life_movie(A::Matrix{Int};
 
 
 
-    G = @gif for k=1:max_steps
+    movie = @animate for k=1:max_steps
         print(".")
         p = my_spy(A)
         back_2 = back_1
@@ -86,5 +90,6 @@ function life_movie(A::Matrix{Int};
 
     end
     println()
+    G = gif(movie, "life.gif", fps = 2)
     return G
 end
