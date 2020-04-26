@@ -5,7 +5,7 @@
 If `A` is a zero-one (integer) matrix, then `life_step(A)` gives the next
 generation from `A` in Conway's cellular automata Game of Life.
 The `life_run` function shows the progression of the cellular
-automata on the screen.
+automata on the screen. Use `life_movie` to create an animated GIF.
 
 ## Functions
 
