@@ -4,7 +4,7 @@
 
 If `A` is a zero-one (integer) matrix, then `life_step(A)` gives the next
 generation from `A` in Conway's cellular automata Game of Life.
-The `run_life` function shows the progression of the cellular
+The `life_run` function shows the progression of the cellular
 automata on the screen.
 
 ## Functions
@@ -24,16 +24,16 @@ matrix as a starting point for the cellular automata.
 
 `random_life(n,m,p)` creates an `n`-by-`m` random matrix in which the
 the probability a cell is a one is `p`.
-* `run_life(n)` is equivalent to `random_life(n,n)`.
-* `run_life(n,p)` is equivalent to `random_life(n,n,p)`.
+* `life_run(n)` is equivalent to `random_life(n,n)`.
+* `life_run(n,p)` is equivalent to `random_life(n,n,p)`.
 
-### `run_life`
+### `life_run`
 
-The `run_life(A)` function is used to run and visualize the cellular
+The `life_run(A)` function is used to run and visualize the cellular
 automata. The run goes on endlessly, but will stop if there are no
 live cells, if two consecutive
 generations are identical, or if it enters a period-2 oscillation.
-If `run_life` halts, it returns the number of iterations.
+If `life_run` halts, it returns the number of iterations.
 
 
 
@@ -44,6 +44,7 @@ first image may take a while to appear as the plotting software
 initializes.
 * `wrap=false` determines if the cellular automata field wraps. If `true`
 then the domain is a torus.
+* `counter=true` shows the iteration number under the image.
 * `max_steps` places a limit on the number of steps to run.
 
 Images look something like this:
@@ -52,7 +53,7 @@ Images look something like this:
 
 ## Issues
 
-The `life_step` function is reasonably fast, but `run_life` is slow for large
+The `life_step` function is reasonably fast, but `life_run` is slow for large
 boards because of the visualization.
 
 ## To Do
