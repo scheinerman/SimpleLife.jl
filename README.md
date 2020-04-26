@@ -46,7 +46,7 @@ first image may take a while to appear as the plotting software
 initializes.
 * `wrap=false` determines if the cellular automata field wraps. If `true`
 then the domain is a torus.
-* `counter=true` shows the iteration number under the image.
+* `counter=false` shows the iteration number under the image.
 * `max_steps` places a limit on the number of steps to run.
 
 Images look something like this:

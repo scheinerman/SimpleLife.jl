@@ -14,14 +14,14 @@ If `life_run` halts, it returns the number of iterations.
 Optional named arguments:
 * `pause = 0.0`: number of extra seconds between frames
 * `wrap = false`: determine if the board wraps (is toroidal)
-* `counter=true`: show the step number below the image
+* `counter=false`: show the step number below the image
 * `max_steps`: maximum number of steps
 """
 function life_run(A::Matrix{Int};
         pause=0.0,
         wrap::Bool=false,
         max_steps::Int=typemax(Int),
-        counter::Bool=true
+        counter::Bool=false
     )
     @assert _life_check(A) "Matrix may only contain 0s and 1s"
     step = 0
