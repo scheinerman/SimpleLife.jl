@@ -17,6 +17,8 @@ of the cellular automata. Optionally, `life_step(A,true)` signals that
 the matrix wraps around (left and right edges are identified,
 as are top and bottom edges) and so the domain is a torus.
 
+**TO DO**: Implement `life_step!(A)` which overwrites `A` with `life_step(A)`.
+
 ### `random_life`
 
 The function `A = random_life(n,m)` creates a random `n`-by-`m` zero-one
