@@ -59,7 +59,7 @@ then the domain is a torus.
 `life_movie(A)` creates an animated GIF file. Use the following named
 arguments to control:
 * `file_name="life.gif"`: name of the GIF file in which to save
-* `wrap::Bool=false`: edge wrapping (sane as `life_run`)
+* `wrap::Bool=false`: edge wrapping (same as `life_run`)
 * `max_steps:`: limit on the number of steps (frames)
 * `fps = 2`: animation frames per second
 
