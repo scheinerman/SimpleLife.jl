@@ -65,7 +65,7 @@ arguments to control:
 
 #### Example
 
-![](./life.m4v)
+![](./life.mp4)
 
 ## Issues
 
