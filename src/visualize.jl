@@ -12,8 +12,8 @@ If `life_run` halts, it returns the number of iterations.
 
 
 Optional named arguments:
-* `pause = 0.0`: number of extra seconds between frames
-* `wrap = false`: determine if the board wraps (is toroidal)
+* `pause=0.0`: number of extra seconds between frames
+* `wrap=false`: determine if the board wraps (is toroidal)
 * `counter=false`: show the step number below the image
 * `max_steps`: maximum number of steps
 """
@@ -56,8 +56,8 @@ end
 
 Optional named arguments:
 * `file_name="life.gif"`: name of file to hold the animation
-* `rate = 2`: frame rate (frames per second)
-* `wrap = false`: determine if the board wraps (is toroidal)
+* `rate=5`: frame rate (frames per second)
+* `wrap=false`: determine if the board wraps (is toroidal)
 * `max_steps`: maximum number of steps; if omitted, runs forever
 """
 function life_movie(A::Matrix{Int};
