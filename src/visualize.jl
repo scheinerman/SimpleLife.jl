@@ -90,6 +90,6 @@ function life_movie(A::Matrix{Int};
 
     end
     println()
-    G = gif(movie, "life.gif", fps = rate)
+    G = gif(movie, file_name, fps = rate)
     return G
 end
