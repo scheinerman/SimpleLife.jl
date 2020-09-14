@@ -8,5 +8,5 @@ SimpleDrawing = "d78a06e8-ae74-583c-9a07-0d6572347000"
 
 [compat]
 julia = "1"
-SimpleDrawing = "0"
+SimpleDrawing = "0.0.1, 0.1, 0.2"
 Plots = "1"
