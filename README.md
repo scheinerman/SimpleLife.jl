@@ -1,5 +1,8 @@
 # SimpleLife
 
+[![Build Status](https://travis-ci.com/scheinerman/SimpleLife.jl.svg?branch=master)](https://travis-ci.com/scheinerman/SimpleLife.jl)
+
+
 ## Overview
 
 If `A` is a zero-one (integer) matrix, then `life_step(A)` gives the next
